@@ -31,3 +31,12 @@ function themSinhVien() {
    */
   showContentTable(dssv);
 }
+
+/** remove a student */
+function removeSV(id) {
+  var vitri = dssv.findIndex(function (item) {
+    return item.maSV == id;
+  });
+  dssv.splice(vitri, 1);
+  showContentTable(dssv);
+}

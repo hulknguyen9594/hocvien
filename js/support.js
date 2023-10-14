@@ -11,7 +11,9 @@ function showContentTable(dssv) {
         <td> ${dssv[i].email} </td>
         <td> ${dssv[i].dtb()} </td>
         <td> 
-            <button class="btn btn-danger">Xóa SV</button>
+            <button class="btn btn-danger" onclick="removeSV(${
+              dssv[i].maSV
+            })">Xóa SV</button>
             <button class="btn btn-primary">Sữa SV</button>
         </td>
         

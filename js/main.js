@@ -1,5 +1,21 @@
 var dssv = [];
 
+var local = localStorage.getItem("dssv_local");
+if (local != null) {
+  var dssv_local = JSON.parse(local);
+  dssv = dssv_local.map(function (item) {
+    return new taoSV(
+      item.maSV,
+      item.tenSV,
+      item.email,
+      item.password,
+      item.mathScore,
+      item.literatureScore
+    );
+  });
+  showContentTable(dssv);
+}
+
 /* them sinh vien*/
 function themSinhVien() {
   /**
@@ -11,21 +27,20 @@ function themSinhVien() {
   var password = document.querySelector("#password").value;
   var mathScore = document.querySelector("#mathScore").value * 1;
   var literatureScore = document.querySelector("#literatureScore").value * 1;
-  var sinhVien = {
-    maSV: maSV,
-    tenSV: tenSV,
-    email: email,
-    password: password,
-    mathScore: mathScore,
-    literatureScore: literatureScore,
-    dtb() {
-      return (this.mathScore + this.literatureScore) / 2;
-    },
-  };
+  var sinhVien = new taoSV(
+    maSV,
+    tenSV,
+    email,
+    password,
+    mathScore,
+    literatureScore
+  );
   /**
    * Đẩy data
    */
   dssv.push(sinhVien);
+  /**add data vao local storage */
+  localStorage.setItem("dssv_local", JSON.stringify(dssv));
   /**
    * show dữ liệu
    */

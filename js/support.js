@@ -14,7 +14,9 @@ function showContentTable(dssv) {
             <button class="btn btn-danger" onclick="removeSV(${
               dssv[i].maSV
             })">Xóa SV</button>
-            <button class="btn btn-primary">Sữa SV</button>
+            <button class="btn btn-primary" onclick="editSV(${
+              dssv[i].maSV
+            })">Sữa SV</button>
         </td>
         
     </tr>`;
